@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: projet-enisortir
+    env: php
+    buildCommand: |
+      curl -sS https://getcomposer.org/installer | php && php composer.phar install --no-dev --optimize-autoloader
+    startCommand: php -S 0.0.0.0:10000 -t public
+    envVars:
+      - key: APP_ENV
+        value: prod
+      - key: APP_SECRET
+        value: ab0087463902ba0cc058f2d8f0f4fbe9
+      - key: DATABASE_URL
+        value: postgresql://projet_enisortir_user:mmx8Pvupf1smIZlRvXEw11XXI6otmO6y@dpg-d2sm5lemcj7s73ab4na0-a/projet_enisortir?serverVersion=17&charset=utf8
